@@ -43,19 +43,14 @@ To set up the project locally, follow these steps:
 ```
 meibomian-gland-segmentation/
 ├── models/
-│   ├── unet_training.py        # Training script for U-Net
-│   ├── transunet_training.py   # Training script for TransUNet
+│   ├── unet.py        # Training script for U-Net
+│   ├── transunet.py   # Training script for TransUNet
 │   ├── unet_inference.py       # Inference script for U-Net
 │   ├── transunet_inference.py  # Inference script for TransUNet
 │
 ├── data/
 │   ├── images/                 # Input images
 │   ├── masks/                  # Ground truth masks
-│
-├── utils/
-│   ├── preprocess.py           # Preprocessing utilities (CLAHE, Wallis filter, noise removal)
-│   ├── metrics.py              # Evaluation metrics (Dice, IoU, etc.)
-│   ├── visualize.py            # Visualization utilities for predictions
 │
 ├── requirements.txt            # List of dependencies
 ├── README.md                   # Project documentation
@@ -79,24 +74,24 @@ Ensure the images and masks are named consistently for pairing during training.
 
 #### Train U-Net:
 ```bash
-python models/unet_training.py --data_path data/ --epochs 50 --batch_size 8
+python unet.py
 ```
 
 #### Train TransUNet:
 ```bash
-python models/transunet_training.py --data_path data/ --epochs 50 --batch_size 4
+python transunet.py
 ```
 
 ### 3. Inference
 
 #### Run U-Net Inference:
 ```bash
-python models/unet_inference.py --input_path data/images/ --output_path predictions/unet/
+python inference.py
 ```
 
 #### Run TransUNet Inference:
 ```bash
-python models/transunet_inference.py --input_path data/images/ --output_path predictions/transunet/
+python transunet_inference.py
 ```
 
 ---
@@ -105,7 +100,6 @@ python models/transunet_inference.py --input_path data/images/ --output_path pre
 
 1. **CLAHE**: Improves contrast in images to enhance gland visibility.
 2. **Wallis Filter**: Sharpens images and focuses on relevant structures.
-3. **Noise Removal**: Removes salt-and-pepper noise to reduce segmentation errors.
 
 The preprocessing pipeline is automatically applied during training and inference.
 
