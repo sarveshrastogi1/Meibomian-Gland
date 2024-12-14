@@ -43,8 +43,8 @@ To set up the project locally, follow these steps:
 ```
 meibomian-gland-segmentation/
 ├── models/
-│   ├── unet.py        # Training script for U-Net
-│   ├── transunet.py   # Training script for TransUNet
+│   ├── unet_new1.py        # Training script for U-Net
+│   ├── transunet_1.py   # Training script for TransUNet
 │   ├── unet_inference.py       # Inference script for U-Net
 │   ├── transunet_inference.py  # Inference script for TransUNet
 │
@@ -74,12 +74,12 @@ Ensure the images and masks are named consistently for pairing during training.
 
 #### Train U-Net:
 ```bash
-python unet.py
+python unet_new1.py
 ```
 
 #### Train TransUNet:
 ```bash
-python transunet.py
+python transunet_1.py
 ```
 
 ### 3. Inference
